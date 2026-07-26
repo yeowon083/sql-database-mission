@@ -7,28 +7,17 @@
 DROP TABLE IF EXISTS rental;
 DROP TABLE
 DROP TABLE IF EXISTS book;
-psql.exe : psql:c:/Data/Codyssey/sql-database-mission/01_schema.sql:8: 알림:  "rental" 테이블 없음, 무시함
-At line:3 char:1
-+ & $psql -U postgres -h localhost -d book_rental_mission -a -f "c:\Dat ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : NotSpecified: (psql:c:/Data/Co...al" 테이블 없음, 무시함:String) [], RemoteException
-    + FullyQualifiedErrorId : NativeCommandError
- 
-psql:c:/Data/Codyssey/sql-database-mission/01_schema.sql:9: 알림:  "book" 테이블 없음, 무시함
 DROP TABLE
 DROP TABLE IF EXISTS member;
-psql:c:/Data/Codyssey/sql-database-mission/01_schema.sql:10: 알림:  "member" 테이블 없음, 무시함
 DROP TABLE
 DROP TABLE IF EXISTS category;
-psql:c:/Data/Codyssey/sql-database-mission/01_schema.sql:11: 알림:  "category" 테이블 없음, 무시함
 DROP TABLE
 -- ---------------------------------------------------------
 -- 1. category (도서 카테고리)
 -- ---------------------------------------------------------
 CREATE TABLE category (
     category_id   INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY, -- PostgreSQL 전용: IDENTITY 자동증가 컬럼
-    category_name VARCHAR(50) NOT NULL UNIQUE,                      -- 카테고리명 중복 방지
-    created_at    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    category_name VARCHAR(50) NOT NULL UNIQUE                       -- 카테고리명 중복 방지
 );
 CREATE TABLE
 -- ---------------------------------------------------------

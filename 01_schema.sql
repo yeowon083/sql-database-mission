@@ -15,8 +15,7 @@ DROP TABLE IF EXISTS category;
 -- ---------------------------------------------------------
 CREATE TABLE category (
     category_id   INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY, -- PostgreSQL 전용: IDENTITY 자동증가 컬럼
-    category_name VARCHAR(50) NOT NULL UNIQUE,                      -- 카테고리명 중복 방지
-    created_at    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    category_name VARCHAR(50) NOT NULL UNIQUE                       -- 카테고리명 중복 방지
 );
 
 -- ---------------------------------------------------------
