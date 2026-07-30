@@ -1,17 +1,36 @@
--- 존재하지 않는 회원을 참조하는 FK 테스트
--- member_id = 9999가 없으므로 오류가 발생해야 한다.
+-- FK 정상 참조 테스트
+SELECT *
+FROM category
+WHERE category_id = 1;
 
-INSERT INTO rental (
-    member_id,
-    book_id,
-    rental_date,
-    due_date,
-    status
+BEGIN;
+
+INSERT INTO book (
+    title,
+    author,
+    category_id
 )
 VALUES (
-    9999,
-    1,
-    CURRENT_DATE,
-    CURRENT_DATE + 14,
-    'RENTED'
+    'FK 정상 테스트 도서',
+    '테스트 작가',
+    1
+);
+
+SELECT *
+FROM book
+WHERE title = 'FK 정상 테스트 도서';
+
+ROLLBACK;
+
+
+-- FK 없는 값 참조 테스트
+INSERT INTO book (
+    title,
+    author,
+    category_id
+)
+VALUES (
+    'FK 오류 테스트 도서',
+    '테스트 작가',
+    9999
 );
