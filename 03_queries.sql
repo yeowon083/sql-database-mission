@@ -144,6 +144,6 @@ WHERE status = 'RETURNED'
 -- =========================================================
 
 -- 18. rental.member_id에 인덱스 생성
--- 적용 이유: 회원별 대여 내역 조회(WHERE member_id = ... / JOIN member)가 자주 발생하므로
+-- 적용 이유: 회원별 대여 내역 조회(WHERE member_id = ...)가 자주 발생하므로
 --           FK 컬럼에 인덱스를 걸어 조회 성능을 개선한다.
 CREATE INDEX idx_rental_member_id ON rental(member_id);
